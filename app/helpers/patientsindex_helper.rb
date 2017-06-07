@@ -1,0 +1,2 @@
+module PatientsindexHelper
+end

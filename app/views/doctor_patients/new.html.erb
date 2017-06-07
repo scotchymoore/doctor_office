@@ -1,0 +1,27 @@
+<h1> Create Appointment </h1>
+<div class='row'>
+<%= form_for @doctor_patient do |f| %>
+<div class='col s3'>
+  <%= f.label :doctor_id%>
+  <%= f.select :doctor_id, options_for_select(@doctors) %>
+</div>
+<div class='col s3'>
+  <%= f.label :patient_id %>
+  <%= f.select :patient_id, options_for_select(@patients) %>
+  </div>
+  <div class='col s3'>
+  <%= f.label :date %>
+  <%= f.date_select :date, required: true, placeholder: 'Date' %>
+  </div>
+  <div class='col s3'>
+    <%= f.label :time %>
+  <%= f.time_select :time, required: true, placeholder: 'Time' %>
+  </div>
+</div>
+  <%= f.submit 'Set Appointment', class: 'btn' %>
+<% end %>
+
+
+<hr />
+<%= link_to 'All Doctors', doctors_path %> |
+<%= link_to 'All Patients', patients_path %>

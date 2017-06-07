@@ -1,0 +1,18 @@
+<h1>Doctor: <%= @doctor.name %> </h1>
+
+<% if @doctor.patients.any? %>
+    <h5> Patients </h5>
+    <ul>
+        <% @doctor.doctor_patients.each do |doctor_patient| %>
+          <li>
+            <%= doctor_patient.patient.name %> - <%= doctor_patient.date %> -
+            <%= link_to 'Remove', doctor_patient_path(doctor_patient), method: :delete, data: {confirm: 'Really remove this ingredient?'} %>
+          </li>
+        <% end %>
+    </ul>
+<% else %>
+  <h5>No Patients Found</h5>
+<% end %>
+
+<%= link_to 'All Doctors', doctors_path %>
+<%= link_to 'Edit', edit_doctor_path(@doctor) %>
